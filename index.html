@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 防搜索引擎收录。原先只靠 vercel.json 的 X-Robots-Tag header，
+     换成 GitHub Pages 等不能自定义 header 的托管就会丢掉，所以在页面里也声明一次。 -->
+<meta name="robots" content="noindex, nofollow">
+<title>TP Engagement Agent · 转让定价签约助手（演示）</title>
+<!-- 内联 SVG 图标：避免 favicon.ico 请求，保持零外部请求 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23123f6d'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Helvetica,Arial'%20font-size='15'%20font-weight='bold'%20fill='%23fff'%20text-anchor='middle'%3ETP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<div class="topbar">
+  <!-- 窄屏时侧栏收成抽屉，用这个按钮开合；宽屏隐藏 -->
+  <button class="nav-toggle" id="navToggle" aria-label="打开导航" aria-expanded="false"
+    aria-controls="sidebar"><span></span><span></span><span></span></button>
+  <div class="logo">TP</div>
+  <div class="brand-name">TP Engagement Agent<span>转让定价签约助手</span></div>
+  <div class="spacer"></div>
+  <div class="demo-badge" id="demoBadge" title="点击查看数据与模型说明">
+    <span class="offline-dot"></span><b>演示数据</b><span class="badge-rest"> · 离线可运行 · 可接入真实模型</span>
+  </div>
+  <div class="role-box">
+    <div class="role-avatar" id="roleAvatar">DR</div>
+    <div>
+      <div class="role-name" id="roleName">TP 项目经理</div>
+      <div class="role-hint" id="roleHint">单人操作模式</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <span class="ic">⚠︎</span>
+  <span><b>免责声明：</b>本工具用于辅助合同准备，不构成法律意见。所有合同内容须由具备授权的专业人员复核和批准。本演示全部资料为虚构数据。</span>
+</div>
+
+<div class="body">
+  <div class="nav-mask" id="navMask"></div>
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main" id="main"></main>
+</div>
+
+<!-- 证据抽屉 §11.4 -->
+<div class="drawer-mask" id="drawerMask"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="证据抽屉">
+  <div class="drawer-h">
+    <h3 id="drawerTitle">查看依据</h3>
+    <button class="x-btn" id="drawerClose" aria-label="关闭">✕</button>
+  </div>
+  <div class="drawer-b" id="drawerBody"></div>
+</aside>
+
+<!-- 通用弹窗 -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-h" id="modalTitle">提示</div>
+    <div class="modal-b" id="modalBody"></div>
+    <div class="modal-f">
+      <button class="btn" id="modalCancel">取消</button>
+      <button class="btn primary" id="modalOk">确认</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/parse.js"></script>
+<script src="assets/real.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/engine.js"></script>
+<script src="assets/model.js"></script>
+<script src="assets/exporter.js"></script>
+<script src="assets/ui.js"></script>
+</body>
+</html>

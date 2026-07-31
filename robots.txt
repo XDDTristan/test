@@ -1,0 +1,5 @@
+# 这是一个内部演示站点，不希望被搜索引擎收录。
+# GitHub Pages 无法自定义响应头（X-Robots-Tag），页面靠 <meta name="robots">，
+# PDF 这类非 HTML 文件只能靠这里。
+User-agent: *
+Disallow: /
